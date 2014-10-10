@@ -1,0 +1,35 @@
+# Package name (required)
+PackageName=unsupervisedMetricLearning
+
+# Version (required)
+Version=1.0.0
+
+#Date (year-month-day)
+Date=2014-09-25
+
+# Title (required)
+Title=Unsupervised Metric Learning
+
+# Category (recommended)
+Category=Classifier
+
+# Author (required)
+Author=Isabel Cristina Pérez Verona <isabelc@informatica.unica.cu>,Tania Rama Hernández <tania.rama@yandex.com>,Jarvin Antón Vargas <janton@cav.uci.cu>,Reinier Millo Sánchez <rmillo@uclv.cu>
+
+# Maintainer (required)
+Maintainer=Isabel Cristina Pérez Verona <isabelc@informatica.unica.cu>,Tania Rama Hernández <tania.rama@yandex.com>,Jarvin Antón Vargas <janton@cav.uci.cu>,Reinier Millo Sánchez <rmillo@uclv.cu>
+
+# License (required)
+License=GPL 3.0
+
+# Description (required)
+Description=Unsupervised Metric Learning for Weka
+
+# Package URL for obtaining the package archive (required)
+PackageURL=http://userpage.fu-berlin.de/semu/software/weka/anonymization1.0.1.zip
+
+# URL for further information
+URL=http://userpage.fu-berlin.de/semu/software/weka/
+
+# Dependencies (format: packageName (equality/inequality version_number)
+Depends=weka (>=3.7.2)
