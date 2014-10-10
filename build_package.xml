@@ -30,16 +30,22 @@
   <!-- Propiedades generales para la compilación del proyecto -->
   <property name="src" location="src/main/java" />
   <property name="build" location="bin" />
+	<property name="lib" location="lib" />
 	<property name="dist-base" location="dist" />
 	<property name="dist-skel" location="${dist-base}/skel" />
   <property name="dist-doc" location="${dist-skel}/doc" />
 	<property name="dist-lib" location="${dist-skel}/lib" />
 	<property name="dist-src" location="${dist-skel}/src" />
   <property name="plugin" value="UnsupervisedMetricLearning" />
-	<!-- La variable GVSIG_INSTALL_DIR se debe definir en las propiedades del
-	RunConfiguration del Ant. Toma como valor el valor de la propia variable del
-	Eclipse -->
-  <property name="extension-dir" location="${GVSIG_INSTALL_DIR}/bin/gvSIG/extensiones" />
+
+	<path id="project.class.path">
+	  <fileset dir="${lib}">
+	    <include name="*.jar"/>
+	    <include name="*.zip"/>
+	  </fileset>
+	  <pathelement location="${build}"/>
+	  <pathelement path="${java.class.path}" />
+	</path>
 
   <!-- Target para inicializar los directorios de compilación -->
   <target name="init">
@@ -60,6 +66,11 @@
     description="Genera la distribución de la extensión para Weka"
   	depends="init">
 
+  	<!-- Compila el código fuente -->
+  	<javac srcdir="${src}" destdir="${build}" source="1.6" target="1.6">
+      <classpath refid="project.class.path" />
+    </javac>
+
     <!-- Genera el JAR de la extensión en el archivo ${plugin}.jar -->
     <jar jarfile="${dist-skel}/${plugin}.jar" basedir="${build}" excludes="**/Test**.class"/>
 
@@ -67,11 +78,8 @@
   	<copy file="build_package.xml" todir="${dist-skel}" />
     <copy file="config/Description.props" todir="${dist-skel}" />
   	<copy file="config/LICENSE.txt" todir="${dist-skel}" />
-  	<copy todir="${dist-lib}">
-  	   <fileset dir="lib/" includes="*.jar" />
-  	</copy>
   	<copy todir="${dist-src}">
-  	       <fileset dir="src" includes="*.*" />
+  	  <fileset dir="${src}" includes="**/**" />
   	</copy>
 
   	<!-- Genera la documentación JavaDoc -->
