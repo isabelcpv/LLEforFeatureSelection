@@ -7,5 +7,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="lib/weka.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SparceMatrix"/>
+	<classpathentry kind="lib" path="lib/la4j-0.4.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

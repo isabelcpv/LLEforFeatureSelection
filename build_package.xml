@@ -32,7 +32,8 @@
   <property name="build" location="bin" />
 	<property name="lib" location="lib" />
 	<property name="dist-base" location="dist" />
-	<property name="dist-skel" location="${dist-base}/skel" />
+<!--	<property name="dist-skel" location="${dist-base}/skel" /> -->
+	<property name="dist-skel" location="/home/millo/wekafiles/packages/UnsupervisedMetricLearning" />
   <property name="dist-doc" location="${dist-skel}/doc" />
 	<property name="dist-lib" location="${dist-skel}/lib" />
 	<property name="dist-src" location="${dist-skel}/src" />
@@ -67,7 +68,7 @@
   	depends="init">
 
   	<!-- Compila el código fuente -->
-  	<javac srcdir="${src}" destdir="${build}" source="1.6" target="1.6">
+  	<javac srcdir="${src}" destdir="${build}" debug="on" source="1.6" target="1.6">
       <classpath refid="project.class.path" />
     </javac>
 
@@ -78,6 +79,8 @@
   	<copy file="build_package.xml" todir="${dist-skel}" />
     <copy file="config/Description.props" todir="${dist-skel}" />
   	<copy file="config/LICENSE.txt" todir="${dist-skel}" />
+  	<copy file="lib/sparse.jar" todir="${dist-lib}" />
+  	<copy file="lib/la4j-0.4.9.jar" todir="${dist-lib}" />
   	<copy todir="${dist-src}">
   	  <fileset dir="${src}" includes="**/**" />
   	</copy>
